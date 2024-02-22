@@ -34,7 +34,7 @@ class _RestClient implements RestClient {
     )
             .compose(
               _dio.options,
-              'repos/${user}/repos',
+              'users/${user}/repos',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -50,7 +50,7 @@ class _RestClient implements RestClient {
   }
 
   @override
-  Future<RepoGeneral> getRepoUnique(
+  Future<RepoUnique> getRepoUnique(
     String user,
     String repo,
   ) async {
@@ -59,7 +59,7 @@ class _RestClient implements RestClient {
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
     final _result = await _dio
-        .fetch<Map<String, dynamic>>(_setStreamType<RepoGeneral>(Options(
+        .fetch<Map<String, dynamic>>(_setStreamType<RepoUnique>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -75,7 +75,7 @@ class _RestClient implements RestClient {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = RepoGeneral.fromJson(_result.data!);
+    final value = RepoUnique.fromJson(_result.data!);
     return value;
   }
 

@@ -6,13 +6,13 @@ part 'repo_general.g.dart';
 class RepoGeneral {
   const RepoGeneral({this.id, this.name, this.fork, this.language});
 
+  factory RepoGeneral.fromJson(Map<String, dynamic> json) =>
+      _$RepoGeneralFromJson(json);
+
   final int? id;
   final String? name;
   final bool? fork;
   final String? language;
-
-  factory RepoGeneral.fromJson(Map<String, dynamic> json) =>
-      _$RepoGeneralFromJson(json);
 
   Map<String, dynamic> toJson() => _$RepoGeneralToJson(this);
 }
